@@ -2,92 +2,96 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guía Sociocrítica y Activa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>METODOLOGÍAS SOCIOCRÍTICAS Y ACTIVAS</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
+      background: #f1f1f1;
       margin: 0;
-      padding: 2rem;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    }
-
-    h1, h2 {
+      padding: 0;
       text-align: center;
     }
 
-    p, ul {
-      font-size: 1.1rem;
-      line-height: 1.6;
+    .container {
+      padding: 20px;
+    }
+
+    .screen {
+      display: none;
+    }
+
+    .active {
+      display: block;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin-top: 0;
     }
 
     button {
-      display: block;
-      width: 100%;
-      margin: 0.5rem 0;
-      padding: 1rem;
-      font-size: 1rem;
-      background-color: #4CAF50;
-      color: white;
+      padding: 10px 20px;
+      margin: 10px;
       border: none;
-      border-radius: 8px;
+      background-color: #3498db;
+      color: white;
+      border-radius: 5px;
       cursor: pointer;
     }
 
     button:hover {
-      background-color: #45a049;
+      background-color: #2980b9;
     }
 
-    .danger {
-      background-color: #f44336;
-    }
-
-    .section {
-      display: none;
-    }
-
-    .back {
-      margin-top: 1rem;
-      background-color: #888;
+    .content {
+      text-align: left;
+      margin: 20px auto;
+      max-width: 600px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div id="main">
-      <h1>GUÍA METODOLÓGICA</h1>
-      <h2>Metodologías Sociocríticas y Activas</h2>
-      <button onclick="verGuia()">Ver Guía</button>
-      <button class="danger" onclick="salir()">Salir</button>
+    <!-- Pantalla Principal -->
+    <div id="mainScreen" class="screen active">
+      <h1>METODOLOGÍAS SOCIOCRÍTICAS Y ACTIVAS</h1>
+      <h2>Guía Interactiva</h2>
+      <button onclick="showScreen('introScreen')">Abrir Guía</button>
+      <br><br>
+      <button onclick="window.close()">Salir</button>
     </div>
 
-    <div id="guia" class="section">
-      <h2>Introducción</h2>
-      <p>El enfoque sociocrítico en la educación promueve la reflexión, el análisis y la acción transformadora. Esta guía está diseñada para docentes de secundaria que buscan integrar metodologías activas en el aula.</p>
-      <ul>
-        <li>Fomentar el pensamiento crítico y reflexivo.</li>
-        <li>Promover la participación activa y colaborativa.</li>
-        <li>Integrar los enfoques sociocríticos en el currículo.</li>
-        <li>Proporcionar herramientas prácticas para innovar.</li>
-      </ul>
-      <button onclick="mostrarSeccion('sec1')">1. Lenguaje y Comunicación</button>
-      <button onclick="mostrarSeccion('sec2')">2. Saberes y Pensamiento Científico</button>
-      <button onclick="mostrarSeccion('sec3')">3. Ética, Naturaleza y Sociedades</button>
-      <button onclick="mostrarSeccion('sec4')">4. Procesos Creativos</button>
-      <button class="back" onclick="volverInicio()">Regresar</button>
+    <!-- Introducción -->
+    <div id="introScreen" class="screen">
+      <div class="content">
+        <h2>GUÍA METODOLOGÍAS SOCIOCRÍTICAS Y ACTIVAS</h2>
+        <p><strong>INTRODUCCIÓN:</strong> El enfoque sociocrítico en la educación promueve la reflexión, el análisis y la acción transformadora...</p>
+        <p><strong>Objetivos:</strong></p>
+        <ul>
+          <li>Fomentar el pensamiento crítico y reflexivo en los estudiantes de secundaria.</li>
+          <li>Promover la participación activa y colaborativa en el aula.</li>
+          <li>Integrar los enfoques sociocríticos en los campos formativos del currículo.</li>
+          <li>Proporcionar herramientas prácticas para docentes que deseen innovar en su práctica educativa.</li>
+        </ul>
+        <p><strong>Selecciona un campo formativo:</strong></p>
+        <button onclick="showScreen('lenguaje')">1. Lenguaje y comunicación</button><br>
+        <button onclick="showScreen('saberes')">2. Saberes y pensamiento científico</button><br>
+        <button onclick="showScreen('etica')">3. Ética, naturaleza y sociedades</button><br>
+        <button onclick="showScreen('creativos')">4. Procesos creativos</button><br><br>
+        <button onclick="showScreen('mainScreen')">Volver al Inicio</button>
+      </div>
     </div>
 
-    <div id="sec1" class="section">
-<h2>Lenguaje y Comunicación</h2>
+    <!-- Lenguaje y comunicación -->
+    <div id="lenguaje" class="screen">
+      <div class="content">
+        <h2>Lenguaje y Comunicación</h2>
         <p><strong>Actividad:</strong> Debate Crítico sobre Medios de Comunicación</p>
         <p><strong>Propósito:</strong> Analizar el papel de los medios...</p>
         <ul>
@@ -99,7 +103,6 @@
         <button onclick="showScreen('introScreen')">Volver</button>
       </div>
     </div>
-
 
     <!-- Saberes y pensamiento -->
     <div id="saberes" class="screen">
@@ -148,12 +151,11 @@
   </div>
 
   <script>
-    function ocultarTodo() {
-      document.querySelectorAll('.section').forEach(el => el.style.display = 'none');
-      document.getElementById('main').style.display = 'none';
+    function showScreen(screenId) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById(screenId).classList.add('active');
     }
-
-    function verGuia() {
+  function verGuia() {
       ocultarTodo();
       document.getElementById('guia').style.display = 'block';
     }
