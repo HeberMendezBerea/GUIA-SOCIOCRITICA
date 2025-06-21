@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guía Sociocrítica y Activa</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    p, ul {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 1rem;
+      font-size: 1rem;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .danger {
+      background-color: #f44336;
+    }
+
+    .section {
+      display: none;
+    }
+
+    .back {
+      margin-top: 1rem;
+      background-color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="main">
+      <h1>GUÍA METODOLÓGICA</h1>
+      <h2>Metodologías Sociocríticas y Activas</h2>
+      <button onclick="verGuia()">Ver Guía</button>
+      <button class="danger" onclick="salir()">Salir</button>
+    </div>
+
+    <div id="guia" class="section">
+      <h2>Introducción</h2>
+      <p>El enfoque sociocrítico en la educación promueve la reflexión, el análisis y la acción transformadora. Esta guía está diseñada para docentes de secundaria que buscan integrar metodologías activas en el aula.</p>
+      <ul>
+        <li>Fomentar el pensamiento crítico y reflexivo.</li>
+        <li>Promover la participación activa y colaborativa.</li>
+        <li>Integrar los enfoques sociocríticos en el currículo.</li>
+        <li>Proporcionar herramientas prácticas para innovar.</li>
+      </ul>
+      <button onclick="mostrarSeccion('sec1')">1. Lenguaje y Comunicación</button>
+      <button onclick="mostrarSeccion('sec2')">2. Saberes y Pensamiento Científico</button>
+      <button onclick="mostrarSeccion('sec3')">3. Ética, Naturaleza y Sociedades</button>
+      <button onclick="mostrarSeccion('sec4')">4. Procesos Creativos</button>
+      <button class="back" onclick="volverInicio()">Regresar</button>
+    </div>
+
+    <div id="sec1" class="section">
+      <h2>1. Lenguaje y Comunicación</h2>
+      <p><strong>Actividad:</strong> Debate Crítico sobre Medios de Comunicación.</p>
+      <p><strong>Propósito:</strong> Analizar el papel de los medios en la construcción de la realidad.</p>
+      <button class="back" onclick="verGuia()">Regresar</button>
+    </div>
+
+    <div id="sec2" class="section">
+      <h2>2. Saberes y Pensamiento Científico</h2>
+      <p><strong>Actividad:</strong> Investigación-Acción sobre Problemáticas Locales.</p>
+      <p><strong>Propósito:</strong> Aplicar el método científico para mejorar la comunidad escolar.</p>
+      <button class="back" onclick="verGuia()">Regresar</button>
+    </div>
+
+    <div id="sec3" class="section">
+      <h2>3. Ética, Naturaleza y Sociedades</h2>
+      <p><strong>Actividad:</strong> Foro Socrático sobre Dilemas Éticos.</p>
+      <p><strong>Propósito:</strong> Desarrollar juicio moral y empatía.</p>
+      <button class="back" onclick="verGuia()">Regresar</button>
+    </div>
+
+    <div id="sec4" class="section">
+      <h2>4. Procesos Creativos</h2>
+      <p><strong>Actividad:</strong> Creación de Campañas de Concientización.</p>
+      <p><strong>Propósito:</strong> Fomentar la creatividad y el compromiso social.</p>
+      <button class="back" onclick="verGuia()">Regresar</button>
+    </div>
+  </div>
+
+  <script>
+    function ocultarTodo() {
+      document.querySelectorAll('.section').forEach(el => el.style.display = 'none');
+      document.getElementById('main').style.display = 'none';
+    }
+
+    function verGuia() {
+      ocultarTodo();
+      document.getElementById('guia').style.display = 'block';
+    }
+
+    function mostrarSeccion(id) {
+      ocultarTodo();
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function volverInicio() {
+      ocultarTodo();
+      document.getElementById('main').style.display = 'block';
+    }
+
+    function salir() {
+      alert("Gracias por usar la guía. Puedes cerrar la pestaña.");
+    }
+  </script>
+</body>
+</html>
