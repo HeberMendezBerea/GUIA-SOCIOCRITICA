@@ -4,149 +4,70 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>METODOLOGÍAS SOCIOCRÍTICAS Y ACTIVAS</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f1f1f1;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-
-    .container {
-      padding: 20px;
-    }
-
-    .screen {
-      display: none;
-    }
-
-    .active {
-      display: block;
-    }
-
-    h1 {
-      font-size: 24px;
-      margin-bottom: 0;
-    }
-
-    h2 {
-      font-size: 18px;
-      margin-top: 0;
-    }
-
-    button {
-      padding: 10px 20px;
-      margin: 10px;
-      border: none;
-      background-color: #3498db;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #2980b9;
-    }
-
-    .content {
-      text-align: left;
-      margin: 20px auto;
-      max-width: 600px;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="container">
+  <div id="app">
+
     <!-- Pantalla Principal -->
-    <div id="mainScreen" class="screen active">
+    <div id="home" class="screen active">
       <h1>METODOLOGÍAS SOCIOCRÍTICAS Y ACTIVAS</h1>
-      <h2>Guía Interactiva</h2>
-      <button onclick="showScreen('introScreen')">Abrir Guía</button>
-      <br><br>
-      <button onclick="window.close()">Salir</button>
+      <p class="subtitle">Guía Interactiva</p>
+      <button onclick="navigateTo('guia')">Entrar a la Guía</button>
+      <button onclick="exitApp()">Salir</button>
     </div>
 
-    <!-- Introducción -->
-    <div id="introScreen" class="screen">
-      <div class="content">
-        <h2>GUÍA METODOLOGÍAS SOCIOCRÍTICAS Y ACTIVAS</h2>
-        <p><strong>INTRODUCCIÓN:</strong> El enfoque sociocrítico en la educación promueve la reflexión, el análisis y la acción transformadora...</p>
-        <p><strong>Objetivos:</strong></p>
-        <ul>
-          <li>Fomentar el pensamiento crítico y reflexivo en los estudiantes de secundaria.</li>
-          <li>Promover la participación activa y colaborativa en el aula.</li>
-          <li>Integrar los enfoques sociocríticos en los campos formativos del currículo.</li>
-          <li>Proporcionar herramientas prácticas para docentes que deseen innovar en su práctica educativa.</li>
-        </ul>
-        <p><strong>Selecciona un campo formativo:</strong></p>
-        <button onclick="showScreen('lenguaje')">1. Lenguaje y comunicación</button><br>
-        <button onclick="showScreen('saberes')">2. Saberes y pensamiento científico</button><br>
-        <button onclick="showScreen('etica')">3. Ética, naturaleza y sociedades</button><br>
-        <button onclick="showScreen('creativos')">4. Procesos creativos</button><br><br>
-        <button onclick="showScreen('mainScreen')">Volver al Inicio</button>
+    <!-- Pantalla Guía -->
+    <div id="guia" class="screen">
+      <h2>GUÍA METODOLOGÍAS SOCIOCRÍTICAS Y ACTIVAS</h2>
+      <p><strong>Introducción:</strong> El enfoque sociocrítico...</p>
+      <ul>
+        <li>Fomentar el pensamiento crítico y reflexivo...</li>
+        <li>Promover la participación activa...</li>
+        <li>Integrar los enfoques sociocríticos...</li>
+        <li>Proporcionar herramientas prácticas...</li>
+      </ul>
+      <div class="buttons">
+        <button onclick="navigateTo('lenguaje')">1. Lenguaje y Comunicación</button>
+        <button onclick="navigateTo('saberes')">2. Saberes y Pensamiento Científico</button>
+        <button onclick="navigateTo('etica')">3. Ética, Naturaleza y Sociedades</button>
+        <button onclick="navigateTo('creativos')">4. Procesos Creativos</button>
       </div>
+      <button onclick="navigateTo('home')">Regresar a Inicio</button>
     </div>
 
-    <!-- Lenguaje y comunicación -->
+    <!-- Secciones individuales -->
     <div id="lenguaje" class="screen">
-      <div class="content">
-        <h2>Lenguaje y Comunicación</h2>
-        <p><strong>Actividad:</strong> Debate Crítico sobre Medios de Comunicación</p>
-        <p><strong>Propósito:</strong> Analizar el papel de los medios...</p>
-        <ul>
-          <li>Seleccionar noticias recientes sobre un tema controversial.</li>
-          <li>Dividir en equipos y analizar distintos medios.</li>
-          <li>Realizar debate y reflexión grupal.</li>
-        </ul>
-        <p><strong>Evaluación:</strong> Rúbrica de argumentación y reflexión crítica.</p>
-        <button onclick="showScreen('introScreen')">Volver</button>
-      </div>
+      <h2>Lenguaje y Comunicación</h2>
+      <p>Actividad 1: Debate Crítico sobre Medios de Comunicación...</p>
+      <p>Actividad 2: Análisis Crítico de Discursos Públicos...</p>
+      <p>Actividad 3: Podcast Social...</p>
+      <button onclick="navigateTo('guia')">Regresar</button>
     </div>
 
-    <!-- Saberes y pensamiento -->
     <div id="saberes" class="screen">
-      <div class="content">
-        <h2>Saberes y Pensamiento Científico</h2>
-        <p><strong>Actividad:</strong> Investigación-Acción sobre Problemáticas Locales</p>
-        <ul>
-          <li>Identificar problemática (residuos, agua, energía).</li>
-          <li>Diseñar investigación y presentar propuestas.</li>
-          <li>Exponer en feria científica escolar.</li>
-        </ul>
-        <p><strong>Evaluación:</strong> Informe y propuesta de acción.</p>
-        <button onclick="showScreen('introScreen')">Volver</button>
-      </div>
+      <h2>Saberes y Pensamiento Científico</h2>
+      <p>Actividad 1: Investigación-Acción...</p>
+      <p>Actividad 2: Salida de Campo...</p>
+      <p>Actividad 3: Feria de Soluciones...</p>
+      <button onclick="navigateTo('guia')">Regresar</button>
     </div>
 
-    <!-- Ética y naturaleza -->
     <div id="etica" class="screen">
-      <div class="content">
-        <h2>Ética, Naturaleza y Sociedades</h2>
-        <p><strong>Actividad:</strong> Foro Socrático sobre Dilemas Éticos</p>
-        <ul>
-          <li>Presentar dilema ético.</li>
-          <li>Organizar foro de discusión.</li>
-          <li>Buscar soluciones sostenibles.</li>
-        </ul>
-        <p><strong>Evaluación:</strong> Participación y calidad de los argumentos.</p>
-        <button onclick="showScreen('introScreen')">Volver</button>
-      </div>
+      <h2>Ética, Naturaleza y Sociedades</h2>
+      <p>Actividad 1: Foro Socrático...</p>
+      <p>Actividad 2: Panel de Derechos Humanos...</p>
+      <p>Actividad 3: Proyecto de Vida...</p>
+      <button onclick="navigateTo('guia')">Regresar</button>
     </div>
 
-   <!-- Procesos creativos -->
     <div id="creativos" class="screen">
-      <div class="content">
-        <h2>Procesos Creativos</h2>
-        <p><strong>Actividad:</strong> Creación de Campañas de Concientización</p>
-        <ul>
-          <li>Elegir un tema (ej. igualdad de género).</li>
-          <li>Diseñar campaña (carteles, redes sociales).</li>
-          <li>Presentarla a la comunidad escolar.</li>
-        </ul>
-        <p><strong>Evaluación:</strong> Originalidad, pertinencia y trabajo en equipo.</p>
-        <button onclick="showScreen('introScreen')">Volver</button>
-      </div>
+      <h2>Procesos Creativos</h2>
+      <p>Actividad 1: Campañas de Concientización...</p>
+      <p>Actividad 2: Laboratorio de Arte...</p>
+      <p>Actividad 3: Juegos Cooperativos...</p>
+      <button onclick="navigateTo('guia')">Regresar</button>
+    </div>
     </div>
   </div>
  <script>
