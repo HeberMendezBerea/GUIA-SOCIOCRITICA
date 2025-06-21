@@ -1,94 +1,239 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>METODOLOGÍAS SOCIOCRÍTICAS Y ACTIVAS</title>
-  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
-<body>
-  <div id="app">
-
-    <!-- Pantalla Principal -->
-    <div id="home" class="screen active">
-      <h1>METODOLOGÍAS SOCIOCRÍTICAS Y ACTIVAS</h1>
-      <p class="subtitle">Guía Interactiva</p>
-      <button onclick="navigateTo('guia')">Entrar a la Guía</button>
-      <button onclick="exitApp()">Salir</button>
-    </div>
-
-    <!-- Pantalla Guía -->
-    <div id="guia" class="screen">
-      <h2>GUÍA METODOLOGÍAS SOCIOCRÍTICAS Y ACTIVAS</h2>
-      <p><strong>Introducción:</strong> El enfoque sociocrítico...</p>
-      <ul>
-        <li>Fomentar el pensamiento crítico y reflexivo...</li>
-        <li>Promover la participación activa...</li>
-        <li>Integrar los enfoques sociocríticos...</li>
-        <li>Proporcionar herramientas prácticas...</li>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center p-4">
+  <div id="main-screen" class="max-w-4xl w-full">
+    <h1 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-2">METODOLOGÍAS SOCIOCRÍTICAS Y ACTIVAS</h1>
+    <h2 class="text-xl md:text-2xl text-center text-gray-600 mb-6">Guía Interactiva</h2>
+    <div id="introduction" class="bg-white p-6 rounded-lg shadow-md mb-6">
+      <h3 class="text-2xl font-semibold text-blue-700 mb-4">GUÍA METODOLOGÍAS SOCIOCRÍTICAS Y ACTIVAS</h3>
+      <h4 class="text-xl font-semibold text-gray-800 mb-2">INTRODUCCIÓN</h4>
+      <p class="text-gray-700 mb-4">
+        El enfoque sociocrítico en la educación promueve la reflexión, el análisis y la acción transformadora en los estudiantes, permitiendo que comprendan y cuestionen su realidad social. Cuando se combina con metodologías activas, se fomenta un aprendizaje significativo, colaborativo y orientado a la acción. Esta guía proporciona estrategias y actividades prácticas para docentes de secundaria, alineadas con los campos formativos: Lenguaje y comunicación, Saberes y pensamiento científico, Ética, naturaleza y sociedades, y Procesos creativos.
+      </p>
+      <h4 class="text-xl font-semibold text-gray-800 mb-2">Objetivos de la Guía</h4>
+      <ul class="list-disc pl-6 text-gray-700">
+        <li>Fomentar el pensamiento crítico y reflexivo en los estudiantes de secundaria.</li>
+        <li>Promover la participación activa y colaborativa en el aula.</li>
+        <li>Integrar los enfoques sociocríticos en los campos formativos del currículo.</li>
+        <li>Proporcionar herramientas prácticas para docentes que deseen innovar en su práctica educativa.</li>
       </ul>
-      <div class="buttons">
-        <button onclick="navigateTo('lenguaje')">1. Lenguaje y Comunicación</button>
-        <button onclick="navigateTo('saberes')">2. Saberes y Pensamiento Científico</button>
-        <button onclick="navigateTo('etica')">3. Ética, Naturaleza y Sociedades</button>
-        <button onclick="navigateTo('creativos')">4. Procesos Creativos</button>
-      </div>
-      <button onclick="navigateTo('home')">Regresar a Inicio</button>
     </div>
-
-    <!-- Secciones individuales -->
-    <div id="lenguaje" class="screen">
-      <h2>Lenguaje y Comunicación</h2>
-      <p>Actividad 1: Debate Crítico sobre Medios de Comunicación...</p>
-      <p>Actividad 2: Análisis Crítico de Discursos Públicos...</p>
-      <p>Actividad 3: Podcast Social...</p>
-      <button onclick="navigateTo('guia')">Regresar</button>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <button onclick="showSection('lenguaje')" class="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition">Lenguaje y Comunicación</button>
+      <button onclick="showSection('saberes')" class="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition">Saberes y Pensamiento Científico</button>
+      <button onclick="showSection('etica')" class="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition">Ética, Naturaleza y Sociedades</button>
+      <button onclick="showSection('procesos')" class="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition">Procesos Creativos</button>
     </div>
-
-    <div id="saberes" class="screen">
-      <h2>Saberes y Pensamiento Científico</h2>
-      <p>Actividad 1: Investigación-Acción...</p>
-      <p>Actividad 2: Salida de Campo...</p>
-      <p>Actividad 3: Feria de Soluciones...</p>
-      <button onclick="navigateTo('guia')">Regresar</button>
-    </div>
-
-    <div id="etica" class="screen">
-      <h2>Ética, Naturaleza y Sociedades</h2>
-      <p>Actividad 1: Foro Socrático...</p>
-      <p>Actividad 2: Panel de Derechos Humanos...</p>
-      <p>Actividad 3: Proyecto de Vida...</p>
-      <button onclick="navigateTo('guia')">Regresar</button>
-    </div>
-
-    <div id="creativos" class="screen">
-      <h2>Procesos Creativos</h2>
-      <p>Actividad 1: Campañas de Concientización...</p>
-      <p>Actividad 2: Laboratorio de Arte...</p>
-      <p>Actividad 3: Juegos Cooperativos...</p>
-      <button onclick="navigateTo('guia')">Regresar</button>
-    </div>
-    </div>
+    <button onclick="exitApp()" class="mt-6 bg-red-600 text-white py-3 px-6 rounded-lg hover:bg-red-700 transition w-full md:w-auto">Salir</button>
   </div>
- <script>
-    function showScreen(screenId) {
-      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-      document.getElementById(screenId).classList.add('active');
+
+  <!-- Lenguaje y Comunicación -->
+  <div id="lenguaje" class="max-w-4xl w-full hidden">
+    <h3 class="text-2xl font-semibold text-blue-700 mb-4">Lenguaje y Comunicación</h3>
+    <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+      <h4 class="text-xl font-semibold text-gray-800 mb-2">Actividad 1: Debate Crítico sobre Medios de Comunicación</h4>
+      <p><strong>Propósito:</strong> Analizar el papel de los medios en la construcción de la realidad social.</p>
+      <p><strong>Procedimiento:</strong></p>
+      <ul class="list-disc pl-6">
+        <li>Seleccionar noticias recientes sobre un tema controversial.</li>
+        <li>Dividir al grupo en equipos: cada uno investiga el enfoque de diferentes medios.</li>
+        <li>Realizar un debate donde cada equipo defienda la postura de un medio.</li>
+        <li>Reflexionar en plenaria sobre la influencia de los medios y la importancia de la alfabetización mediática.</li>
+      </ul>
+      <p><strong>Evaluación:</strong> Rúbrica de argumentación y reflexión crítica.</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+      <h4 class="text-xl font-semibold text-gray-800 mb-2">Actividad 2: Análisis Crítico de Discursos Públicos</h4>
+      <p><strong>Propósito:</strong> Desarrollar la capacidad de análisis crítico y argumentativo a través del estudio de discursos públicos relevantes para la comunidad.</p>
+      <p><strong>Procedimiento:</strong></p>
+      <ul class="list-disc pl-6">
+        <li>Seleccionar discursos (presenciales o en video) de figuras públicas sobre temas sociales actuales (ejemplo: derechos humanos, igualdad de género, medio ambiente).</li>
+        <li>Organizar equipos para identificar recursos retóricos, intenciones comunicativas y posibles sesgos o manipulaciones.</li>
+        <li>Cada equipo expone su análisis y se realiza una discusión plenaria sobre el impacto social de los discursos.</li>
+        <li>Los estudiantes redactan un texto argumentativo a partir de la reflexión colectiva.</li>
+      </ul>
+      <p><strong>Evaluación:</strong> Matriz de análisis crítico y calidad argumentativa.</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+      <h4 class="text-xl font-semibold text-gray-800 mb-2">Actividad 3: Podcast Social: Voces de la Comunidad</h4>
+      <p><strong>Propósito:</strong> Fomentar la expresión oral y la escucha activa mediante la producción colaborativa de un podcast sobre problemáticas locales.</p>
+      <p><strong>Procedimiento:</strong></p>
+      <ul class="list-disc pl-6">
+        <li>Identificar, en conjunto, temas sociales relevantes en la comunidad escolar.</li>
+        <li>Investigar, entrevistar a actores locales y guionizar episodios del podcast.</li>
+        <li>Grabar y editar los episodios, difundiendo el producto en espacios escolares o digitales.</li>
+        <li>Reflexionar sobre el proceso y el impacto en la comunidad.</li>
+      </ul>
+      <p><strong>Evaluación:</strong> Rúbrica de trabajo colaborativo, creatividad y pertinencia social.</p>
+    </div>
+    <button onclick="backToMain()" class="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition w-full md:w-auto">Regresar</button>
+  </div>
+
+  <!-- Saberes y Pensamiento Científico -->
+  <div id="saberes" class="max-w-4xl w-full hidden">
+    <h3 class="text-2xl font-semibold text-blue-700 mb-4">Saberes y Pensamiento Científico</h3>
+    <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+      <h4 class="text-xl font-semibold text-gray-800 mb-2">Actividad 1: Investigación-Acción sobre Problemáticas Locales</h4>
+      <p><strong>Propósito:</strong> Aplicar el método científico para analizar y proponer soluciones a problemas de la comunidad escolar.</p>
+      <p><strong>Procedimiento:</strong></p>
+      <ul class="list-disc pl-6">
+        <li>Identificar una problemática local (ej. residuos, agua, energía).</li>
+        <li>Formular hipótesis y diseñar una investigación.</li>
+        <li>Recopilar datos, analizar resultados y presentar propuestas de mejora.</li>
+        <li>Socializar los resultados en una feria científica escolar.</li>
+      </ul>
+      <p><strong>Evaluación:</strong> Presentación de informe y propuesta de acción.</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+      <h4 class="text-xl font-semibold text-gray-800 mb-2">Actividad 2: Salida de Campo para Diagnóstico Ambiental</h4>
+      <p><strong>Propósito:</strong> Aplicar el método científico y la observación directa para analizar el entorno natural y social de la comunidad escolar.</p>
+      <p><strong>Procedimiento:</strong></p>
+      <ul class="list-disc pl-6">
+        <li>Planificar una salida de campo a un espacio natural o urbano cercano.</li>
+        <li>Identificar problemáticas ambientales (contaminación, biodiversidad, gestión de residuos).</li>
+        <li>Recopilar datos mediante observación, entrevistas y registros fotográficos.</li>
+        <li>Elaborar un informe y proponer acciones de mejora, integrando saberes disciplinares y comunitarios.</li>
+      </ul>
+      <p><strong>Evaluación:</strong> Informe de salida, propuesta de acción y participación.</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+      <h4 class="text-xl font-semibold text-gray-800 mb-2">Actividad 3: Feria de Soluciones Innovadoras</h4>
+      <p><strong>Propósito:</strong> Promover la creatividad y la resolución de problemas reales mediante la elaboración de prototipos o propuestas científicas.</p>
+      <p><strong>Procedimiento:</strong></p>
+      <ul class="list-disc pl-6">
+        <li>Identificar retos científicos o tecnológicos en la comunidad escolar (ejemplo: ahorro de agua, energía, reciclaje).</li>
+        <li>Formar equipos para investigar, diseñar y construir prototipos o campañas de solución.</li>
+        <li>Presentar las propuestas en una feria escolar abierta a la comunidad.</li>
+        <li>Evaluar el impacto y reflexionar sobre la transferencia del conocimiento a la vida cotidiana.</li>
+      </ul>
+      <p><strong>Evaluación:</strong> Rúbrica de innovación, viabilidad y fundamentación científica.</p>
+    </div>
+    <button onclick="backToMain()" class="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition w-full md:w-auto">Regresar</button>
+  </div>
+
+  <!-- Ética, Naturaleza y Sociedades -->
+  <div id="etica" class="max-w-4xl w-full hidden">
+    <h3 class="text-2xl font-semibold text-blue-700 mb-4">Ética, Naturaleza y Sociedades</h3>
+    <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+      <h4 class="text-xl font-semibold text-gray-800 mb-2">Actividad 1: Foro Socrático sobre Dilemas Éticos</h4>
+      <p><strong>Propósito:</strong> Desarrollar el juicio moral y la empatía ante situaciones complejas.</p>
+      <p><strong>Procedimiento:</strong></p>
+      <ul class="list-disc pl-6">
+        <li>Presentar un dilema ético relacionado con el entorno (ej. uso de recursos naturales).</li>
+        <li>Organizar un foro donde los estudiantes argumenten diferentes posturas.</li>
+        <li>Guiar la discusión hacia la búsqueda de soluciones justas y sostenibles.</li>
+      </ul>
+      <p><strong>Evaluación:</strong> Participación y calidad de los argumentos.</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+      <h4 class="text-xl font-semibold text-gray-800 mb-2">Actividad 2: Panel de Derechos Humanos y Diversidad</h4>
+      <p><strong>Propósito:</strong> Reflexionar sobre los derechos humanos y la diversidad en contextos escolares y comunitarios.</p>
+      <p><strong>Procedimiento:</strong></p>
+      <ul class="list-disc pl-6">
+        <li>Investigar casos actuales de vulneración de derechos humanos en el entorno local o nacional.</li>
+        <li>Organizar un panel donde los estudiantes, en roles diversos (defensores, afectados, autoridades), expongan y debatan los casos.</li>
+        <li>Elaborar propuestas de acción o campañas de sensibilización para la comunidad escolar.</li>
+      </ul>
+      <p><strong>Evaluación:</strong> Participación, argumentación y propuesta de acción.</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+      <h4 class="text-xl font-semibold text-gray-800 mb-2">Actividad 3: Proyecto de Vida y Bienestar Comunitario</h4>
+      <p><strong>Propósito:</strong> Fomentar la construcción de proyectos de vida personales y colectivos con perspectiva de bienestar y justicia social.</p>
+      <p><strong>Procedimiento:</strong></p>
+      <ul class="list-disc pl-6">
+        <li>Realizar talleres de autoconocimiento, identificación de fortalezas y metas personales.</li>
+        <li>Analizar, en grupos, problemáticas que afectan el bienestar colectivo (salud, violencia, exclusión).</li>
+        <li>Diseñar proyectos colaborativos que contribuyan al bienestar de la comunidad escolar o local.</li>
+        <li>Presentar y ejecutar los proyectos, evaluando su impacto.</li>
+      </ul>
+      <p><strong>Evaluación:</strong> Diario de reflexión, pertinencia y sostenibilidad del proyecto.</p>
+    </div>
+    <button onclick="backToMain()" class="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition w-full md:w-auto">Regresar</button>
+  </div>
+
+  <!-- Procesos Creativos -->
+  <div id="procesos" class="max-w-4xl w-full hidden">
+    <h3 class="text-2xl font-semibold text-blue-700 mb-4">Procesos Creativos</h3>
+    <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+      <h4 class="text-xl font-semibold text-gray-800 mb-2">Actividad 1: Creación de Campañas de Concientización</h4>
+      <p><strong>Propósito:</strong> Fomentar la creatividad y el compromiso social.</p>
+      <p><strong>Procedimiento:</strong></p>
+      <ul class="list-disc pl-6">
+        <li>Elegir un tema relevante (ej. igualdad de género, diversidad cultural).</li>
+        <li>Investigar el tema y diseñar una campaña (carteles, videos, redes sociales).</li>
+        <li>Presentar la campaña a la comunidad escolar.</li>
+        <li>Evaluar el impacto y reflexionar sobre el proceso creativo.</li>
+      </ul>
+      <p><strong>Evaluación:</strong> Originalidad, pertinencia y trabajo en equipo.</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+      <h4 class="text-xl font-semibold text-gray-800 mb-2">Actividad 2: Laboratorio de Arte y Cambio Social</h4>
+      <p><strong>Propósito:</strong> Explorar el arte como herramienta de reflexión y transformación social.</p>
+      <p><strong>Procedimiento:</strong></p>
+      <ul class="list-disc pl-6">
+        <li>Investigar manifestaciones artísticas que han promovido cambios sociales (murales, performance, música).</li>
+        <li>Crear, en equipos, una obra artística que aborde una problemática relevante para la comunidad.</li>
+        <li>Exponer las obras y facilitar un diálogo sobre el mensaje y el proceso creativo.</li>
+      </ul>
+      <p><strong>Evaluación:</strong> Originalidad, pertinencia social y proceso creativo.</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+      <h4 class="text-xl font-semibold text-gray-800 mb-2">Actividad 3: Diseño de Juegos Cooperativos para la Inclusión</h4>
+      <p><strong>Propósito:</strong> Promover la inclusión, el trabajo en equipo y la resolución de conflictos a través del diseño de juegos cooperativos.</p>
+      <p><strong>Procedimiento:</strong></p>
+      <ul class="list-disc pl-6">
+        <li>Analizar situaciones de exclusión o conflicto en la escuela.</li>
+        <li>Diseñar juegos que fomenten la cooperación, el respeto y la integración de todos los estudiantes.</li>
+        <li>Implementar los juegos y reflexionar sobre la experiencia vivida.</li>
+      </ul>
+      <p><strong>Evaluación:</strong> Creatividad, participación y reflexión sobre la inclusión.</p>
+    </div>
+    <button onclick="backToMain()" class="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition w-full md:w-auto">Regresar</button>
+  </div>
+
+  <!-- Sugerencias Didácticas -->
+  <div id="sugerencias" class="max-w-4xl w-full hidden">
+    <h3 class="text-2xl font-semibold text-blue-700 mb-4">Sugerencias Didácticas</h3>
+    <div class="bg-white p-6 rounded-lg shadow-md mb-4">
+      <ul class="list-disc pl-6 text-gray-700">
+        <li>Fomentar el diálogo horizontal y la participación equitativa.</li>
+        <li>Utilizar recursos digitales y colaborativos (padlets, foros, videos).</li>
+        <li>Promover la autoevaluación y la coevaluación.</li>
+        <li>Adaptar las actividades según el contexto y las características del grupo.</li>
+      </ul>
+    </div>
+    <button onclick="backToMain()" class="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition w-full md:w-auto">Regresar</button>
+  </div>
+
+  <script>
+    function showSection(sectionId) {
+      document.getElementById('main-screen').classList.add('hidden');
+      document.getElementById(sectionId).classList.remove('hidden');
     }
-  function verGuia() {
-      ocultarTodo();
-      document.getElementById('guia').style.display = 'block';
+
+    function backToMain() {
+      document.querySelectorAll('#lenguaje, #saberes, #etica, #procesos, #sugerencias').forEach(section => {
+        section.classList.add('hidden');
+      });
+      document.getElementById('main-screen').classList.remove('hidden');
     }
-function mostrarSeccion(id) {
-      ocultarTodo();
-      document.getElementById(id).style.display = 'block';
-    }
-function volverInicio() {
-      ocultarTodo();
-      document.getElementById('main').style.display = 'block';
-    }
-function salir() {
-      alert("Gracias por usar la guía. Puedes cerrar la pestaña.");
+
+    function exitApp() {
+      window.close(); // Note: This may not work in all browsers due to security restrictions
     }
   </script>
 </body>
